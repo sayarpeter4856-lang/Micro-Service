@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" 
+	xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+	<div class="container my-5">
+		<p class="lead mb-3">Your shopping cart contains 
+		<span th:text="${itemSize}"></span> items.</p>
+		<div class="d-flex justify-content-around align-items-center my-3">
+			<a th:href="@{/affable-bean/ui/clear-cart}"  class="bg-warning py-3 p-5 rounded text-decoration-none">Clear Cart</a>
+			<a th:href="@{/affable-bean/ui/home}" class="bg-warning py-3 p-5 rounded text-decoration-none">Continue Shopping</a>
+			<a th:href="@{/affable-bean/ui/checkout-view}" class="bg-warning py-3 p-5 rounded text-decoration-none">Proceed to Checkout</a>
+		</div>
+		<div th:if="${cartItems.isEmpty()}">
+			<div class="d-flex justify-content-center align-items-center">
+				<h3>No Cart Items</h3>
+			</div>
+		</div>
+		<table th:if="${!cartItems.isEmpty()}" class="table table-striped table-hover table-warning rounded">
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Subtotal</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item :${cartItems}">
+					<td>
+						<img th:src="@{'/images/products/'+${item.name}+'.png'}" alt="Image" />
+					</td>
+					<td th:text="${item.name}"></td>
+					<td th:text="${'$'+item.price}"></td>
+					<td>
+					<a th:href="@{'/affable-bean/ui/increase-quantity?id='+${item.id}}" 
+						class="btn btn-success px-3">+</a>
+					<span th:text="${item.quantity}"></span>
+					<a th:href="@{'/affable-bean/ui/decrease-quantity?id='+${item.id}}" class="btn btn-danger px-3">-</a>
+					</td>
+					<td th:text="${#numbers.formatDecimal(item.price * item.quantity, 1, 'POINT', 2, 'COMMA')}"></td>
+					<td>
+						<a href="" class="btn btn-outline-danger">Remove</a>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+		<div class="row">
+			<div class="offset-md-10 col-md-2">
+				<h5 th:text="${'Total ::'+#numbers.formatDecimal(totalCost,1,'POINT',2,'POINT')}"></h5>
+			</div>
+		</div>
+	</div>
+</main>
+</body>
+</html>

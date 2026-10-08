@@ -1,0 +1,37 @@
+
+img{
+    border: none;
+}
+body{
+    background: #FAE428;
+}
+
+#logo {
+    float: left;
+    margin-left: 30px;
+    margin-top: -10px;
+}
+#stalk{
+
+    margin-top: -70px;
+    margin-left: -157px;
+    clear: both;
+}
+
+#logoText {
+    float: left;
+    margin: 20px 0 0 70px;
+    /* font styles apply to text within img alt attribute */
+    font-family: 'American Typewriter', Courier, monospace;
+    font-size: 50px;
+    color: #333;
+}
+#main{
+    clear: both;
+}
+
+.bg-button{
+    padding: 10px 30px 10px 30px;
+    background: lightseagreen;
+    border-radius: 10px;
+}

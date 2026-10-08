@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" 
+	xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+				<h3 class="text-center">Welcome to the online home of the Affable Bean Green
+						Grocer.</h3>
+					<br>
+					<p class="lead p-3" style="text-align: justify;">Enjoy browsing and learning more about our
+						unique home delivery service bringing you fresh organic
+						produce,dairy,meats,breads and other delicious and healthy items
+						to you Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae tenetur aliquam maiores aperiam ad! Ex molestiae nemo harum quasi officia quam quidem ea autem porro laudantium esse quia eius repudiandae. </p>
+			</div>
+			
+			
+			<div class="col">
+				<div class="row mb-3">
+					<div class="col">
+						<a th:href="@{'/affable-bean/ui/products?name=bakery'}"><img th:src="@{/images/categories/bakery.jpg}"
+						 alt="Image" class="img-fluid p-3 rounded shadow"/> </a>
+					</div>
+					<div class="col">
+						<a th:href="@{'/affable-bean/ui/products?name=dairy'}">
+						<img th:src="@{/images/categories/dairy.jpg}"
+						 alt="Image" class="img-fluid p-3 rounded shadow"/></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<a th:href="@{'/affable-bean/ui/products?name=fruit_veg'}"><img th:src="@{/images/categories/fruitveg.jpg}"
+						 alt="Image" class="img-fluid p-3 rounded shadow"/> </a>
+					</div>
+					<div class="col">
+						<a th:href="@{'/affable-bean/ui/products?name=meats'}"><img th:src="@{/images/categories/meats.jpg}"
+						 alt="Image" class="img-fluid p-3 rounded shadow"/></a>
+					</div>
+				</div>
+			</div>
+		</div>မ
+	</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/masterLayout :: layout(~{::main})}" 
+	xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+	<div class="container mt-5">
+	<div th:replace="~{fragments/cart.html :: cart}"></div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="d-flex flex-column">
+					<a th:href="@{'/affable-bean/ui/products?name=bakery'}" class="btn btn-success px-5 mb-3 py-3 rounded">Bakery</a>
+					<a th:href="@{'/affable-bean/ui/products?name=dairy'}" class="btn btn-success px-5 mb-3 py-3 rounded">Diary</a>
+					<a th:href="@{'/affable-bean/ui/products?name=meats'}" class="btn btn-success px-5 mb-3 py-3 rounded">Meat</a>
+					<a th:href="@{'/affable-bean/ui/products?name=fruit_veg'}" class="btn btn-success px-5 mb-3 py-3 rounded">Fruit &amp; Vegetable</a>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<table class="table table-striped table-hover table-warning">
+					<tbody>
+						<tr th:each="item : ${products}">
+							<td>
+								<img th:src="@{'/images/products/'+${item.name}+'.png'}" alt="Image" />
+							</td>
+							<td th:text="${item.name}"></td>
+							<td th:text="${'$'+ item.price}"></td>
+							<td>
+								<a th:href="@{'/affable-bean/ui/add-to-cart?id='+${item.id}}" 
+								class="btn btn-warning">purchase</a>
+							</td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>
+</body>
+</html>
+
+
+

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="cart" class="row my-3">
+	<div class="offset-md-10 col-md-2">
+		<a style="text-decoration: none" th:href="@{/affable-bean/ui/cart-view}"><h5><img th:src="@{'/images/cart.gif'}" alt="Image" />
+		<span class="badge text-bg-success" th:text="${cartSize}"></span>
+		</h5></a>
+	</div>
+</div>
+</body>
+</html>
